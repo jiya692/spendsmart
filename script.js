@@ -75,7 +75,13 @@ function displayExpenses() {
 
     if (expenses.length === 0) {
 
-        expenseList.textContent = "No expenses added yet.";
+       /* expenseList.textContent = "No expenses added yet.";  replaced it*/ 
+
+        const message = document.createElement("p");
+message.className = "empty-message";
+message.textContent = "No expenses added yet.";
+
+expenseList.appendChild(message);
 
     } else {
 
@@ -161,6 +167,7 @@ function deleteExpense(id) {
 
 // Display category-wise spending
 
+
 function displayCategorySummary() {
 
     categorySummary.innerHTML = "";
@@ -174,11 +181,15 @@ function displayCategorySummary() {
     ];
 
     if (expenses.length === 0) {
-
         categorySummary.textContent = "No spending data available.";
         return;
-
     }
+
+    let grandTotal = 0;
+
+    expenses.forEach(function(expense) {
+        grandTotal = grandTotal + expense.amount;
+    });
 
     categories.forEach(function(category) {
 
@@ -194,12 +205,7 @@ function displayCategorySummary() {
 
         if (categoryTotal > 0) {
 
-            const percentage =
-                (categoryTotal / Number(
-                    expenses.reduce(function(total, expense) {
-                        return total + expense.amount;
-                    }, 0)
-                )) * 100;
+            const percentage = (categoryTotal / grandTotal) * 100;
 
             const categoryItem = document.createElement("div");
             categoryItem.className = "category-item";
@@ -235,6 +241,7 @@ function displayCategorySummary() {
     });
 
 }
+
 
 // Display saved expenses when page loads
 
