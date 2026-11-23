@@ -33,3 +33,14 @@ Our team used ChatGPT as an AI assistance tool during the development of SpendSm
 ## Conclusion
 
 AI helped us understand concepts and develop the application more efficiently. However, we used browser testing and our own review to verify the final functionality.
+
+
+## AI Usage Documentation
+
+Our team used ChatGPT for project planning, coding guidance,
+understanding programming concepts and troubleshooting.
+
+We reviewed and tested the suggested code before using it.
+
+For detailed AI usage, corrections and team contributions,
+please see [AI_LOG.md](AI_LOG.md).
